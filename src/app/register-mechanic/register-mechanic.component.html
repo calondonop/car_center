@@ -1,0 +1,90 @@
+<form *ngIf="form" [formGroup]="form" class="register">
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo documento</mat-label>
+    <select matNativeControl required name="tipoDocumento" id="tipoDocumento" formControlName="tipoDocumento">
+      <option value="CC">CC Cédula ciudadanía</option>
+      <option value="CE">CE Cédula extranjería</option>
+      <option value="PA">PA Pasaporte</option>
+      <option value="TI">TI Tarjeta identidad</option>
+    </select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Documento</mat-label>
+    <input matInput type="text" name="documento" id="documento" placeholder="123456" formControlName="documento">
+    <mat-error
+      *ngIf="form.controls.documento.invalid && form.controls.documento.dirty && !form.controls.documento.untouched">
+      Documento Invalido
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Primer Nombre</mat-label>
+    <input matInput #primerNombre type="text" name="primerNombre" id="primerNombre" placeholder="Mi nombre"
+      formControlName="primerNombre">
+    <mat-hint align="end">{{primerNombre.value.length}} / {{maxCharacters}}</mat-hint>
+    <mat-error
+      *ngIf="form.controls.primerNombre.invalid && form.controls.primerNombre.dirty && !form.controls.primerNombre.untouched">
+      Primer nombre invalido
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Segundo Nombre</mat-label>
+    <input matInput #segundoNombre type="text" name="segundoNombre" id="segundoNombre" placeholder="Mi segundo nombre"
+      formControlName="segundoNombre">
+    <mat-hint align="end">{{segundoNombre.value.length}} / {{maxCharacters}}</mat-hint>
+    <mat-error
+      *ngIf="form.controls.segundoNombre.invalid && form.controls.segundoNombre.dirty && !form.controls.segundoNombre.untouched">
+      Segundo nombre inválido
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Primer apellido</mat-label>
+    <input matInput #primerApellido type="text" name="primerApellido" id="primerApellido" placeholder="Mi primer apellido"
+      formControlName="primerApellido">
+    <mat-hint align="end">{{primerApellido.value.length}} / {{maxCharacters}}</mat-hint>
+    <mat-error
+      *ngIf="form.controls.primerApellido.invalid && form.controls.primerApellido.dirty && !form.controls.primerApellido.untouched">
+      Primer apellido inválido
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Segundo apellido</mat-label>
+    <input matInput #segundoApellido type="text" name="segundoApellido" id="segundoApellido" placeholder="Mi segundo apellido"
+      formControlName="segundoApellido">
+    <mat-hint align="end">{{segundoApellido.value.length}} / {{maxCharacters}}</mat-hint>
+    <mat-error
+      *ngIf="form.controls.segundoApellido.invalid && form.controls.segundoApellido.dirty && !form.controls.segundoApellido.untouched">
+      Segundo apellido inválido
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Celular</mat-label>
+    <input matInput type="text" name="celular" id="celular" placeholder="3007778899" formControlName="celular">
+    <mat-error *ngIf="form.controls.celular.invalid && form.controls.celular.dirty && !form.controls.celular.untouched">
+      Celular inválido
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Dirección</mat-label>
+    <input matInput type="direccion" name="direccion" id="direccion" placeholder="Calle 66 # 88-99" formControlName="direccion">
+    <mat-error *ngIf="form.controls.direccion.invalid && form.controls.direccion.dirty && !form.controls.direccion.untouched">
+      Dirección inválido
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" name="email" id="email" placeholder="myemail@mymail.com" formControlName="email">
+    <mat-error *ngIf="form.controls.email.invalid && form.controls.email.dirty && !form.controls.email.untouched">
+      Email invalido
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Estado</mat-label>
+    <select matNativeControl required name="estado" id="estado" formControlName="estado">
+      <option value="1">Disponible</option>
+      <option value="0">Ocupado</option>
+    </select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="submitForm()">Guardar</button>
+</form>

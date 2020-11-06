@@ -1,0 +1,10 @@
+.mecanicos {
+  max-width: 350px;
+  margin: 20px auto 0 auto;
+}
+
+.mecanicos__acciones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

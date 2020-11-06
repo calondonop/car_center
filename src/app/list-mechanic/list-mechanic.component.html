@@ -1,0 +1,17 @@
+<ng-container *ngFor="let mecanico of mecanicos" >
+  <mat-card class="mecanicos">
+    <mat-card-header>
+      <mat-card-title> {{mecanico.primerNombre}} {{mecanico.segundoNombre}} {{mecanico.primerApellido}} {{mecanico.segundoApellido}} </mat-card-title>
+      <mat-card-subtitle> {{mecanico.documento}} </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div><b>Email:</b> {{mecanico.email}} </div>
+      <div><b>Número celular:</b> {{mecanico.celular}} </div>
+      <div><b>Dirección:</b> {{mecanico.direccion}} </div>
+    </mat-card-content>
+    <mat-card-actions class="mecanicos__acciones">
+      <button mat-raised-button color="primary" (click)="asignarMecanico(mecanico)" [disabled]="estaAsignado(mecanico)">Asignar Mecanico</button>
+      <span *ngIf="estaAsignado(mecanico)" >Asignado</span>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
